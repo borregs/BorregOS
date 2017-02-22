@@ -136,4 +136,5 @@ if ! shopt -oq posix; then
 fi
 # is u a gee or is u a foo
 # screenfetch for fancy kids
+# screenfetch.sh can be found raw at: https://raw.githubusercontent.com/KittyKatt/screenFetch/master/screenfetch-dev
 ./scrn && echo PLEASE MAKE ME USEFULL MASTER BORREGS
