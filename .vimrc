@@ -15,6 +15,8 @@ Plugin 'dracula/vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'posva/vim-vue'
 Plugin 'scrooloose/syntastic'
+Plugin 'surround/vim-surround'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -30,7 +32,17 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-" BORRE ORIG V
+
+"SCRIPT FROM BORRE
+"Vundle should be downloaded from its official git tree @[https://github.com/VundleVim/Vundle.vim]
+"However, its worth mentioning that installing Vundle is not necessary if u gotz the pluggins in /home/user/.vim/bundle
+"Best way to achieve this is to unzip bundle.zip in bundle dir
+"I include a zip of the bundled pluggins I use. I do not own the pluggins!
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                   .vimrc - Borreconf   
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Its either u configure VIM and struggle like a man
 "or drop ur balls and install nano
 syntax on
@@ -51,14 +63,28 @@ set shiftwidth=2
 set expandtab
 set smartindent
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                   BORREConf detailed AF
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
 set rtp+=/usr/local/lib/python3.4/dist-packages/powerline/bindings/vim/
 set laststatus=2
 set t_Co=256
 
-color dracula
+color delek
+"color dracula
 "color ryuuko
 
 set showmode
+set hlsearch
+set ignorecase
+set linespace=0
+set nu
+set showmatch
+set incsearch
+
 
 autocmd vimenter * NERDTree
 
@@ -66,18 +92,71 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd vimenter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 let NERDTreeShowHidden=1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                   Status Line - Borreconf   
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+"set statusline=%<%f\\ 
+"set statusline+=%w%h%m%r
+"set statusline+=\\ [%{&ff}/%Y]
+"set statusline+=\\ [%{getcwd()}]
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                   Syntastic - Borreconf                                           "
+"                                                                                   "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"               Only config file bellongs to me.                                    "
+"                                                                                   "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                                                                   
+"                    It's a bird! It's a plane! ZOMG It's ...
+"
+"                   _____             __             __  _     
+"                  / ___/__  ______  / /_____ ______/ /_(_)____ 
+"                  \__ \/ / / / __ \/ __/ __ `/ ___/ __/ / ___/ 
+"                 ___/ / /_/ / / / / /_/ /_/ (__  ) /_/ / /__   
+"                /____/\__, /_/ /_/\__/\__,_/____/\__/_/\___/   
+"                     /____/                                    
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
-
 let g:syntastic_javascript_checkers=['eslint']
-autocmd vimenter * wincmd p
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                  NERDTree - Borreconf   
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+autocmd vimenter * wincmd p "Cursor siempre abre en la ventana principal
 let g:NERDTreeDirArrowExpandable = '>'
 let g:NERDTreeDirArrowCollapsible = 'V'
-map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeChDirMode=0
+let g:NERDTreeKeepTreeInNewTab=1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                   'Soy el mapa'... get it :V  
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+cmap Q q
+cmap qq q!
+
+nmap <leader>nt :NERDTreeFind<CR>
+
+
+map <C-n> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+map <leader>e :NERDTreeFind<CR>
 map <C-T> :set tabstop=0<CR>
+
