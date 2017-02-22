@@ -7,3 +7,6 @@ This directory specifically contains scripts written for configuring a linux 3.1
 Linux Mint 18 (y)
 Puppy Linux Xenial 7 (y)
 
+#How to handle  bundle.zip || Como instalar este .zip:
+$wget -O ~/.vim/bundle.zip https://github.com/borregs/BorregOS/raw/master/bundle.zip
+$cd ~/.vim && unzip bundle.zip
