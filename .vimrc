@@ -96,7 +96,8 @@ let NERDTreeShowHidden=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                   Status Line - Borreconf   
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+" Cuenta la leyenda que algunos mortales siguen contando las lineas de su vi
+" buscando su error... Dejese de mamadas compa.
 
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 "set statusline=%<%f\\ 
@@ -149,6 +150,8 @@ let g:NERDTreeKeepTreeInNewTab=1
 "                   'Soy el mapa'... get it :V  
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Les advierto q mis mappeos no les gustaran a todos. Es mejor mappear acorde a cada 
+" Teclado y usuario.
 
 cmap Q q
 cmap qq q!
